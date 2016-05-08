@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <% if current_user.present? %>
+          <%= link_to 'Brand', posts_path, class: 'navbar-brand' %>
+      <% else %>
+          <%= link_to 'Brand', root_path, class: 'navbar-brand' %>
+      <% end %>
+    </div>
+    <% if current_user.present? %>
+      <ul class="nav navbar-nav navbar-right">
+        <li id="fat-menu" class="dropdown">
+          <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Account <span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="drop3">
+            <li><%= link_to 'Profile', user_path(current_user) %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to 'Sign Out', logout_path %></li>
+          </ul>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+</nav>

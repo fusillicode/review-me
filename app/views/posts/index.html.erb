@@ -1,0 +1,15 @@
+<% unless current_user.guest? %>
+  <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal">
+    Add Post
+  </button>
+<% end %>
+
+<h2 class="text-center">User Posts</h2>
+<div id="posts">
+  <%= render @posts %>
+</div>
+
+<%= paginate @posts %>
+
+<%= render 'modal' %>
+<%= render 'loader' %>
